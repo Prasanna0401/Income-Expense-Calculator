@@ -6,45 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Income Expense Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container">
-
-        <h1>Income Expense Calculator</h1>
-
-        <div class="balance-summary">
-            <h2>Balance: <span id="balance">₹0.00</span></h2>
-            <h3>Total Income: <span id="total-income">₹0.00</span></h3>
-            <h3>Total Expenses: <span id="total-expenses">₹0.00</span></h3>
+        <h1>Income & Expense Tracker</h1>
+        <div class="balance-section">
+            <h2>Net Balance: ₹<span id="net-balance">0</span></h2>
+        </div>
+        <div class="total-section">
+            <p>Total Income: ₹<span id="total-income">0</span></p>
+            <p>Total Expense: ₹<span id="total-expense">0</span></p>
         </div>
 
-        <div class="filters">
-            <input type="radio" id="all" name="filter" value="all" checked>
-            <label for="all">All</label>
-            <input type="radio" id="income" name="filter" value="income">
-            <label for="income">Income</label>
-            <input type="radio" id="expense" name="filter" value="expense">
-            <label for="expense">Expense</label>
-        </div>
-
-        <div class="transaction-form">
-            <input type="text" id="description" placeholder="Enter description" required>
-            <input type="number" id="amount" placeholder="Enter amount" required>
-            <select id="type">
+        <!-- Input section for adding entries -->
+        <div class="input-section">
+            <label for="type-select">Type:</label>
+            <select id="type-select">
                 <option value="income">Income</option>
                 <option value="expense">Expense</option>
             </select>
-            <button id="add-btn">Add</button>
+
+            <input type="text" id="description-input" placeholder="Enter description" />
+            <input type="number" id="amount-input" placeholder="Enter amount" />
+            <button id="add-btn">Add Data</button>
         </div>
 
-        <ul id="transaction-list">
-            <!-- All the Transactions will be listed here -->
-        </ul>
-    </div>
+        <!-- Filter options for displaying entries -->
+        <div class="filter-section">
+            <label><input type="radio" name="filter" value="all" checked> All</label>
+            <label><input type="radio" name="filter" value="income"> Income</label>
+            <label><input type="radio" name="filter" value="expense"> Expense</label>
+        </div>
 
+        <!-- Table for displaying entries -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="entries-table-body">
+                <!-- Dynamic rows will go here -->
+            </tbody>
+        </table>
+    </div>
     <script src="script.js"></script>
 </body>
+
 
 </html>
